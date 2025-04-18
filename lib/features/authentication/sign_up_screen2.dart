@@ -5,18 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../widgets/custom_background.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
-
+import '../widgets/onboarding_screen_structure.dart';
 
 class SignUpScreen2 extends ConsumerWidget {
   SignUpScreen2({super.key});
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return CustomBackground(
       mainText: "Complete Sign Up",
       child: SingleChildScrollView(
@@ -69,7 +69,9 @@ class SignUpScreen2 extends ConsumerWidget {
               child: Align(
                 alignment: Alignment.centerRight,
                 child: GestureDetector(
-                    onTap: (){ Navigator.pushNamed(context, "/resetPassword1");},
+                    onTap: () {
+                      Navigator.pushNamed(context, "/resetPassword1");
+                    },
                     child: Text(
                       'Forgot Password?',
                       style: TextStyle(
@@ -81,11 +83,14 @@ class SignUpScreen2 extends ConsumerWidget {
             ),
             SizedBox(height: 24.h),
             Padding(
-              padding:  EdgeInsets.only(left:16.0.w,right: 16.w),
+              padding: EdgeInsets.only(left: 16.0.w, right: 16.w),
               child: CustomButton(
-                onPressed: (){},
+                onPressed: // (){},
+                    () {
+
+                },
                 backgroundColor: const Color(0xFF001233),
-                child:Text(
+                child: Text(
                   "Sign Up",
                   style: TextStyle(
                       color: Colors.white,
@@ -96,70 +101,6 @@ class SignUpScreen2 extends ConsumerWidget {
             ),
 
             SizedBox(height: 24.h),
-            //
-            // Padding(
-            //   padding:EdgeInsets.only(left: 16.w, right:16.w),
-            //   child: Row(
-            //     children: [
-            //       Expanded(
-            //         child: Divider(
-            //           color: Colors.grey[300], // Adjust color as needed
-            //         ),
-            //       ),
-            //       Padding(
-            //         padding: EdgeInsets.symmetric(horizontal: 8.w),
-            //         child: Text(
-            //           "Or",
-            //           style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w400),
-            //         ),
-            //       ),
-            //       Expanded(
-            //         child: Divider(
-            //           color: Colors.grey[300], // Adjust color as needed
-            //         ),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            //
-            // SizedBox(height: 30.h),
-            // Align(
-            //   alignment: Alignment.center,
-            //   child: GestureDetector(
-            //     onTap: () {     Navigator.pushNamed(context, "/signup");
-            //     },
-            //     child: Text(
-            //       "Already have an account? ",
-            //       style: TextStyle(fontSize: 12.sp, color: Colors.white, fontWeight: FontWeight.w400),
-            //
-            //     ),
-            //
-            //   ),
-            // ),
-            // SizedBox(height: 20.h),
-            //
-            // Padding(
-            //   padding:  EdgeInsets.only(left:16.0.w,right: 16.w),
-            //   child: CustomButton(
-            //     onPressed: () {
-            //       // Handle Google sign-up logic here
-            //     },
-            //     backgroundColor: Colors.white,
-            //     borderColor: const Color(0xFFFFBF00),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Icon(Icons.g_translate, color: Colors.black),
-            //         SizedBox(width: 8.w),
-            //         Text(
-            //           "Login",
-            //           style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w400, color: Colors.black),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-
           ],
         ),
       ),

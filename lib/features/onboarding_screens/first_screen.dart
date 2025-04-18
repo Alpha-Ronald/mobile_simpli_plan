@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../main.dart';
 import '../authentication/sign_up_screen1.dart';
+import 'onboarding_screen.dart';
 
 class IntroScreen extends StatefulWidget {
   const IntroScreen({super.key});
@@ -32,7 +33,7 @@ class _IntroScreenState extends State<IntroScreen> with SingleTickerProviderStat
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => SignUpScreen1(),),
+        MaterialPageRoute(builder: (context) => OnboardingScreen(),),
       );
     });
   }
