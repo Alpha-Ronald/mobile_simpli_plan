@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:mobile_simpli_plan/features/authentication/sign_up_screen1.dart';
 import 'package:mobile_simpli_plan/features/authentication/sign_up_screen2.dart';
 
 import '../widgets/custom_background.dart';
@@ -115,7 +116,7 @@ class LoginScreen extends ConsumerWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) =>LoginScreen()),
+                        builder: (context) =>SignUpScreen1()),
                   );
                 },
                 backgroundColor: Colors.white,
