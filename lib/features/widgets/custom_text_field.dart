@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
-///this text field is also used in the restaurant agency code.
+/// Custom TextField widget used across the app.
 class CustomTextField extends StatefulWidget {
   final String label;
   final TextEditingController controller;
@@ -10,6 +9,10 @@ class CustomTextField extends StatefulWidget {
   final bool isPassword;
   final double? height;
   final double? width;
+  final Color? fillColor;      // Background color
+  final Color? textColor;      // Input text color
+  final double? fontSize;      // Input text size
+
   const CustomTextField({
     super.key,
     required this.label,
@@ -17,7 +20,10 @@ class CustomTextField extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.isPassword = false,
     this.height,
-    this.width
+    this.width,
+    this.fillColor,
+    this.textColor,
+    this.fontSize,
   });
 
   @override
@@ -25,26 +31,32 @@ class CustomTextField extends StatefulWidget {
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
-  bool _obscureText = true; // Controls password visibility
+  bool _obscureText = true;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 24.h),  // Outer padding
+      padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 24.h),
       child: SizedBox(
-        width: widget.width?? 358.w,
+        width: widget.width ?? 358.w,
         height: widget.height ?? 72.h,
-
         child: TextField(
           controller: widget.controller,
           keyboardType: widget.keyboardType,
           obscureText: widget.isPassword ? _obscureText : false,
-          maxLines: widget.height != null && widget.height! > 72.h ? null : 1,
+          maxLines: (widget.height != null && widget.height! > 72.h) ? null : 1,
+          style: TextStyle(
+            color: widget.textColor ?? Colors.black,      // Text color
+            fontSize: widget.fontSize ?? 16.sp,            // Text size
+          ),
           decoration: InputDecoration(
             filled: true,
-            fillColor: Colors.white70,
-            labelText: widget.label, // Floating label inside the field
-            labelStyle: TextStyle(fontSize: 14.sp, color: Colors.black),
+            fillColor: widget.fillColor ?? Colors.white70,
+            labelText: widget.label,
+            labelStyle: TextStyle(
+              fontSize: 14.sp,
+              color: Colors.black,
+            ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12.r),
               borderSide: BorderSide(width: 1, color: Colors.grey.shade300),
@@ -57,7 +69,12 @@ class _CustomTextFieldState extends State<CustomTextField> {
               borderRadius: BorderRadius.circular(10.r),
               borderSide: const BorderSide(color: Colors.black),
             ),
-            contentPadding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 24.h),
+            contentPadding: EdgeInsets.symmetric(
+              horizontal: 24.w,
+              vertical: widget.height != null
+                  ? widget.height! * 0.25   // Dynamic padding based on height
+                  : 24.h,
+            ),
             suffixIcon: widget.isPassword
                 ? IconButton(
               icon: Icon(

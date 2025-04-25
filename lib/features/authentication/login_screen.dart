@@ -8,7 +8,6 @@ import '../widgets/custom_background.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
 
-
 class LoginScreen extends ConsumerWidget {
   LoginScreen({super.key});
 
@@ -17,7 +16,6 @@ class LoginScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
     return CustomBackground(
       mainText: "Glad you're back",
       child: SingleChildScrollView(
