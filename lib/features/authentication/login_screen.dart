@@ -3,7 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mobile_simpli_plan/features/authentication/sign_up_screen1.dart';
 import 'package:mobile_simpli_plan/features/authentication/sign_up_screen2.dart';
+import 'package:mobile_simpli_plan/features/users/dashboard.dart';
 
+import '../users/home_screen.dart';
 import '../widgets/custom_background.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/custom_text_field.dart';
@@ -54,7 +56,13 @@ class LoginScreen extends ConsumerWidget {
             Padding(
               padding:  EdgeInsets.only(left:16.0.w,right: 16.w),
               child: CustomButton(
-                onPressed:(){},
+                onPressed:(){
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>Dashboard()),
+                  );
+                },
                 backgroundColor: const Color(0xFF001233),
                 child:Text(
                   "Login",
